@@ -6,6 +6,7 @@ import { theme } from '../shared/theme';
 import LoginPage from '../pages/LoginPage';
 import Dashboard from '../pages/Dashboard';
 import NavBar from '../widgets/nav-bar/NavBar';
+import ProductList from '../features/product-management/pages/ProductList';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -30,6 +31,7 @@ function App() {
           <Route path="/dashboard" element={
             isLoggedIn ? <Dashboard /> : <Navigate to="/login" />
           } />
+          <Route path="/products" element={<ProductList />} />
           <Route path="/" element={<Navigate to="/login" />} />
         </Routes>
       </Router>

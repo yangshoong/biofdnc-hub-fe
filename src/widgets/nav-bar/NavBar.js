@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppBar, Toolbar, Typography, Button, Box, Menu, MenuItem, Fade } from '@mui/material';
+import { AppBar, Toolbar, Button, Box, Menu, MenuItem, Fade } from '@mui/material';
 import { Link } from 'react-router-dom';
 import logo from '../../shared/images/biofdnc_logo.png'; // 로고 이미지 경로
 import './NavBar.css'; // CSS 파일 경로
@@ -20,10 +20,9 @@ function NavBar({ isLoggedIn, onLogout }) {
       <AppBar position="static" className="nav-bar">
         <Toolbar className="nav-bar-toolbar">
           <Box className="nav-bar-logo-container">
-            <img src={logo} alt="Logo" className="nav-bar-logo" />
-            <Typography variant="h6" component="div" className="nav-bar-title">
-              BIO-FD&C
-            </Typography>
+            <Link to="/">
+              <img src={logo} alt="Logo" className="nav-bar-logo" />
+            </Link>
           </Box>
           <Box className="nav-bar-items-container">
             {navItems.map((item, index) => (
@@ -73,10 +72,12 @@ function NavBar({ isLoggedIn, onLogout }) {
         {menuItems.map((subItem, index) => (
           <MenuItem
             key={index}
+            component={Link}
+            to={subItem.link}
             onClick={handleClose}
             sx={{ fontSize: '0.8rem' }} // 네비게이션 바 아이템과 동일한 폰트 크기
           >
-            {subItem}
+            {subItem.label}
           </MenuItem>
         ))}
       </Menu>
