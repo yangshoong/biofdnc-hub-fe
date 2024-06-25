@@ -1,0 +1,52 @@
+.nav-bar-top-line {
+  width: 100%;
+  height: 2px;
+  background-color: white;
+}
+
+.nav-bar {
+  background-color: #0a2240;
+  border-bottom: 2px solid white;
+}
+
+.nav-bar-toolbar {
+  min-height: 40px;
+  justify-content: space-between;
+}
+
+.nav-bar-logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.nav-bar-logo {
+  height: 30px;
+  margin-right: 16px;
+}
+
+.nav-bar-title {
+  font-size: 1rem;
+  color: white;
+}
+
+.nav-bar-items-container {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.nav-bar-item {
+  font-size: 0.8rem;
+  padding: 4px 8px;
+  /* 기본 패딩 */
+  margin: 0 12px;
+  /* 아이템 간의 거리를 더 벌림 */
+  min-width: auto;
+  text-transform: none;
+  color: white;
+}
+
+.MuiMenu-paper {
+  transition: opacity 0.1s linear, transform 0.1s linear !important;
+}
