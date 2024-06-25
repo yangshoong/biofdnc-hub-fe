@@ -20,13 +20,10 @@
 }
 
 .nav-bar-logo {
-  height: 30px;
-  margin-right: 16px;
-}
-
-.nav-bar-title {
-  font-size: 1rem;
-  color: white;
+  /* 로고의 크기를 원본 크기의 80%로 설정 */
+  height: 70%;
+  width: 70%;
+  max-height: 100%; /* 네비게이션 바의 높이에 맞추기 위해 최대 높이를 설정 */
 }
 
 .nav-bar-items-container {
@@ -38,10 +35,8 @@
 
 .nav-bar-item {
   font-size: 0.8rem;
-  padding: 4px 8px;
-  /* 기본 패딩 */
-  margin: 0 12px;
-  /* 아이템 간의 거리를 더 벌림 */
+  padding: 4px 8px; /* 기본 패딩 */
+  margin: 0 12px; /* 아이템 간의 거리를 더 벌림 */
   min-width: auto;
   text-transform: none;
   color: white;
