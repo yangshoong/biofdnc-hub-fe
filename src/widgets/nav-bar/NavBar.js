@@ -1,17 +1,23 @@
 import React from 'react';
 import { AppBar, Toolbar, Button, Box, Menu, MenuItem, Fade } from '@mui/material';
-import { Link } from 'react-router-dom';
-import logo from '../../shared/images/biofdnc_logo.png'; // 로고 이미지 경로
-import './NavBar.css'; // CSS 파일 경로
-import navItems from './navItems'; // 네비게이션 아이템 리스트 경로
-import useNavStore from './useNavStore'; // zustand 상태 관리
+import { Link, useNavigate } from 'react-router-dom';
+import logo from '../../shared/images/biofdnc_logo.png';
+import './NavBar.css';
+import navItems from './navItems';
+import useNavStore from './useNavStore';
 
 function NavBar({ isLoggedIn, onLogout }) {
   const { anchorEl, menuItems, setAnchorEl, setMenuItems, handleClose } = useNavStore();
+  const navigate = useNavigate();
 
   const handleMouseOver = (event, items) => {
     setAnchorEl(event.currentTarget);
     setMenuItems(items);
+  };
+
+  const handleLogout = () => {
+    onLogout();
+    navigate('/login');
   };
 
   return (
@@ -32,7 +38,7 @@ function NavBar({ isLoggedIn, onLogout }) {
                 component={Link}
                 to="#"
                 className="nav-bar-item"
-                sx={{ margin: '0 20px' }} // 아이템 간의 거리를 조정
+                sx={{ margin: '0 20px' }}
                 onMouseOver={(event) => handleMouseOver(event, item.subItems)}
               >
                 {item.label}
@@ -42,9 +48,9 @@ function NavBar({ isLoggedIn, onLogout }) {
           {isLoggedIn ? (
             <Button
               color="inherit"
-              onClick={onLogout}
+              onClick={handleLogout}
               className="nav-bar-item"
-              sx={{ margin: '0 20px' }} // 아이템 간의 거리를 조정
+              sx={{ margin: '0 20px' }}
             >
               로그아웃
             </Button>
@@ -54,7 +60,7 @@ function NavBar({ isLoggedIn, onLogout }) {
               component={Link}
               to="/login"
               className="nav-bar-item"
-              sx={{ margin: '0 20px' }} // 아이템 간의 거리를 조정
+              sx={{ margin: '0 20px' }}
             >
               로그인
             </Button>
@@ -65,8 +71,8 @@ function NavBar({ isLoggedIn, onLogout }) {
         anchorEl={anchorEl}
         open={Boolean(anchorEl)}
         onClose={handleClose}
-        TransitionComponent={Fade} // 트랜지션을 Fade로 변경
-        transitionDuration={{ enter: 1, exit: 1 }} // 애니메이션 지속 시간 조정
+        TransitionComponent={Fade}
+        transitionDuration={{ enter: 1, exit: 1 }}
         MenuListProps={{ onMouseLeave: handleClose }}
       >
         {menuItems.map((subItem, index) => (
@@ -75,7 +81,7 @@ function NavBar({ isLoggedIn, onLogout }) {
             component={Link}
             to={subItem.link}
             onClick={handleClose}
-            sx={{ fontSize: '0.8rem' }} // 네비게이션 바 아이템과 동일한 폰트 크기
+            sx={{ fontSize: '0.8rem' }}
           >
             {subItem.label}
           </MenuItem>

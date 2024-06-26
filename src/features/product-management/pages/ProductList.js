@@ -29,19 +29,19 @@ function ProductList() {
       </Typography>
       <Box sx={{ display: 'flex', gap: 2, marginTop: 2 }}>
         <TextField
-          label="자재번호"
+          label="품번"
           variant="outlined"
           value={filters.number}
           onChange={(e) => setFilter('number', e.target.value)}
         />
         <TextField
-          label="자재내역"
+          label="품명"
           variant="outlined"
           value={filters.name}
           onChange={(e) => setFilter('name', e.target.value)}
         />
         <TextField
-          label="자재내역(약호)"
+          label="규격"
           variant="outlined"
           value={filters.shortName}
           onChange={(e) => setFilter('shortName', e.target.value)}
@@ -64,9 +64,9 @@ function ProductList() {
           <TableHead>
             <TableRow>
               <TableCell>No.</TableCell>
-              <TableCell>자재번호</TableCell>
-              <TableCell>자재내역</TableCell>
-              <TableCell>자재내역(약호)</TableCell>
+              <TableCell>품번</TableCell>
+              <TableCell>품명</TableCell>
+              <TableCell>규격</TableCell>
               <TableCell>기본단위</TableCell>
               <TableCell>자재유형</TableCell>
               <TableCell>자재그룹</TableCell>
