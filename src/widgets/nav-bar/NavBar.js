@@ -1,23 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { AppBar, Toolbar, Button, Box, Menu, MenuItem, Fade } from '@mui/material';
-import { Link, useNavigate } from 'react-router-dom';
-import logo from '../../shared/images/biofdnc_logo.png';
+import { Link } from 'react-router-dom';
+import logo from '../../shared/assets/images/biofdnc_logo.png';
 import './NavBar.css';
-import navItems from './navItems';
-import useNavStore from './useNavStore';
+import navItems from './NavItems';
+import { useAuth } from '../../features/auth/model/AuthContext';
 
-function NavBar({ isLoggedIn, onLogout }) {
-  const { anchorEl, menuItems, setAnchorEl, setMenuItems, handleClose } = useNavStore();
-  const navigate = useNavigate();
+function NavBar() {
+  const { isLoggedIn, logout } = useAuth();
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [menuItems, setMenuItems] = useState([]);
 
-  const handleMouseOver = (event, items) => {
+  const handleMouseOver = (event, subItems) => {
     setAnchorEl(event.currentTarget);
-    setMenuItems(items);
+    setMenuItems(subItems || []);
   };
 
-  const handleLogout = () => {
-    onLogout();
-    navigate('/login');
+  const handleClose = () => {
+    setAnchorEl(null);
+    setMenuItems([]);
   };
 
   return (
@@ -48,7 +49,7 @@ function NavBar({ isLoggedIn, onLogout }) {
           {isLoggedIn ? (
             <Button
               color="inherit"
-              onClick={handleLogout}
+              onClick={logout}
               className="nav-bar-item"
               sx={{ margin: '0 20px' }}
             >

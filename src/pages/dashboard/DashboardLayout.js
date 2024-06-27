@@ -1,10 +1,10 @@
 import React from 'react';
 import { Grid, Paper, Typography, Container } from '@mui/material';
-import Announcements from '../widgets/announcements/Announcements';
-import HelpDesk from '../widgets/help-desk/HelpDesk';
-import PerformanceChart from '../widgets/performance-chart/PerformanceChart';
-import ToDoList from '../widgets/to-do-list/ToDoList';
-import ContactUs from '../widgets/contact-us/ContactUs';
+import Announcements from '../../widgets/announcements/Announcements';
+import HelpDesk from '../../widgets/help-desk/HelpDesk';
+import PerformanceChart from '../../widgets/performance-chart/PerformanceChart';
+import ToDoList from '../../widgets/to-do-list/ToDoList';
+import ContactUs from '../../widgets/contact-us/ContactUs';
 
 function Dashboard() {
   return (

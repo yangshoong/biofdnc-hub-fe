@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Box, Typography, Paper } from '@mui/material';
-import LoginForm from '../features/auth/LoginForm';
+import LoginForm from '../../features/auth/ui/LoginForm';
 
 function LoginPage({ onLogin }) {
   return (

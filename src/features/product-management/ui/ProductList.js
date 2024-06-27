@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Tabs, Tab, TextField } from '@mui/material';
-import products from '../data/products'; // products 데이터를 import
-import useProductStore from '../store/useProductStore';
+import { products } from '../api/products';
+import useProductStore from '../model/useProductStore';
 
 function ProductList() {
   const { filters, setFilter } = useProductStore();
