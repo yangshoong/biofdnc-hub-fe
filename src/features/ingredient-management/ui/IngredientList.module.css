@@ -1,0 +1,54 @@
+body {
+  overflow-x: hidden; /* 전체 페이지의 가로 스크롤을 숨깁니다 */
+}
+
+.container {
+  padding: 0 100px;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 100px);
+  max-width: 100vw; /* 뷰포트 너비를 초과하지 않도록 합니다 */
+  overflow-x: hidden;
+}
+
+.title {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.filterContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.tableContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  max-height: calc(100vh - 350px); /* 전체 높이를 조금 줄임 */
+}
+
+.tableWrapper {
+  flex: 1;
+  overflow: auto;
+  margin-bottom: 8px;
+}
+
+.paginationContainer {
+  display: flex;
+  justify-content: center;
+  padding: 4px 0; /* 상하 패딩을 줄임 */
+  background-color: white;
+  border-top: 1px solid #e0e0e0;
+}
+
+.tableRow {
+  height: 48px;
+}
+
+.tableCell {
+  padding: 8px 16px;
+}
