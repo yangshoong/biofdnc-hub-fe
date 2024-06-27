@@ -1,12 +1,12 @@
 import React from 'react';
 import { Route, Routes, Navigate } from 'react-router-dom';
-import { useAuth } from '../features/auth/model/AuthContext';
+import useAuthStore from '../features/auth/model/authStore';
 import LoginPage from '../pages/login/LoginLayout';
 import Dashboard from '../pages/dashboard/DashboardLayout';
 import ProductList from '../features/product-management/ui/ProductList';
 
 function AppRoutes() {
-  const { isLoggedIn, login } = useAuth();
+  const { isLoggedIn, login } = useAuthStore();
 
   return (
     <Routes>

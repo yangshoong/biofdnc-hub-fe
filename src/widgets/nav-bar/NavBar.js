@@ -3,11 +3,11 @@ import { AppBar, Toolbar, Button, Box, Menu, MenuItem, Fade } from '@mui/materia
 import { Link } from 'react-router-dom';
 import logo from '../../shared/assets/images/biofdnc_logo.png';
 import './NavBar.css';
-import navItems from './NavItems';
-import { useAuth } from '../../features/auth/model/AuthContext';
+import navItems from './navItems';
+import useAuthStore from '../../features/auth/model/authStore';
 
 function NavBar() {
-  const { isLoggedIn, logout } = useAuth();
+  const { isLoggedIn, logout } = useAuthStore();
   const [anchorEl, setAnchorEl] = useState(null);
   const [menuItems, setMenuItems] = useState([]);
 
