@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { AppBar, Toolbar, Button, Box, Menu, MenuItem, Fade } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../shared/assets/images/biofdnc_logo.png';
 import './NavBar.css';
 import navItems from './navItems';
@@ -8,6 +8,7 @@ import useAuthStore from '../../features/auth/model/authStore';
 
 function NavBar() {
   const { isLoggedIn, logout } = useAuthStore();
+  const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = useState(null);
   const [menuItems, setMenuItems] = useState([]);
 
@@ -21,6 +22,11 @@ function NavBar() {
     setMenuItems([]);
   };
 
+  const handleLogout = () => {
+    logout();
+    navigate('/login');
+  };
+
   return (
     <>
       <Box className="nav-bar-top-line" />
@@ -32,7 +38,7 @@ function NavBar() {
             </Link>
           </Box>
           <Box className="nav-bar-items-container">
-            {navItems.map((item, index) => (
+            {isLoggedIn && navItems.map((item, index) => (
               <Button
                 key={index}
                 color="inherit"
@@ -49,7 +55,7 @@ function NavBar() {
           {isLoggedIn ? (
             <Button
               color="inherit"
-              onClick={logout}
+              onClick={handleLogout}
               className="nav-bar-item"
               sx={{ margin: '0 20px' }}
             >
