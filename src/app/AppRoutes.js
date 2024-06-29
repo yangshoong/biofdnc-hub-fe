@@ -4,7 +4,8 @@ import useAuthStore from '../features/auth/model/authStore';
 import LoginPage from '../pages/login/LoginLayout';
 import Dashboard from '../pages/dashboard/DashboardLayout';
 import ProductList from '../features/product-management/ui/ProductList';
-import IngredientList from '../features/ingredient-management/ui/IngredientList';
+import IngredientList from '../features/ingredient-inquiry/ui/IngredientList';
+import IngredientDetailPage from '../pages/ingredient-detail/IngredientDetailPage';
 
 function AppRoutes() {
   const { isLoggedIn, login } = useAuthStore();
@@ -19,6 +20,9 @@ function AppRoutes() {
       } />
       <Route path="/products" element={<ProductList />} />
       <Route path="/ingredients" element={<IngredientList />} />
+      <Route path="/ingredient-detail/:inciName?" element={
+        isLoggedIn ? <IngredientDetailPage /> : <Navigate to="/login" />
+      } />
       <Route path="/" element={<Navigate to="/login" />} />
     </Routes>
   );
