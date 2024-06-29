@@ -6,6 +6,7 @@ import Dashboard from '../pages/dashboard/DashboardLayout';
 import ProductList from '../features/product-management/ui/ProductList';
 import IngredientList from '../features/ingredient-inquiry/ui/IngredientList';
 import IngredientDetailPage from '../pages/ingredient-detail/IngredientDetailPage';
+import IngredientEditPage from '../features/ingredient-edit/ui/IngredientEditPage';
 
 function AppRoutes() {
   const { isLoggedIn, login } = useAuthStore();
@@ -22,6 +23,9 @@ function AppRoutes() {
       <Route path="/ingredients" element={<IngredientList />} />
       <Route path="/ingredient-detail/:inciName?" element={
         isLoggedIn ? <IngredientDetailPage /> : <Navigate to="/login" />
+      } />
+      <Route path="/ingredient-edit/:id" element={
+        isLoggedIn ? <IngredientEditPage /> : <Navigate to="/login" />
       } />
       <Route path="/" element={<Navigate to="/login" />} />
     </Routes>

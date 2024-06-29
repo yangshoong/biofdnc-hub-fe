@@ -1,9 +1,17 @@
 import React from 'react';
-import { Typography, Table, TableHead, TableBody, TableRow, TableCell } from '@mui/material';
+import { Typography, Table, TableHead, TableBody, TableRow, TableCell, IconButton } from '@mui/material';
+import EditIcon from '@mui/icons-material/Edit';
 import { ingredients as purchasedIngredients } from '../api/purchasedIngredients';
+import useIngredientNavigation from '../model/useIngredientNavigation';
 
 function PurchasedIngredientsList({ inciName }) {
   const filteredIngredients = purchasedIngredients.filter(item => item.inciName === inciName);
+  const { navigateToIngredientEdit } = useIngredientNavigation();
+
+  const handleEdit = (id) => {
+    console.log(`Edit purchased ingredient with id: ${id}`);
+    // 여기에 실제 수정 로직을 구현하세요
+  };
 
   return (
     <>
@@ -19,6 +27,7 @@ function PurchasedIngredientsList({ inciName }) {
             <TableCell>유래 부위</TableCell>
             <TableCell>캘러스 유래</TableCell>
             <TableCell>기타</TableCell>
+            <TableCell style={{ width: '50px', padding: '0 8px' }}></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -30,6 +39,11 @@ function PurchasedIngredientsList({ inciName }) {
               <TableCell>{purchasedIngredient.derivedPart}</TableCell>
               <TableCell>{purchasedIngredient.callusOrigin}</TableCell>
               <TableCell>{purchasedIngredient.etc}</TableCell>
+              <TableCell style={{ padding: '0 8px' }}>
+                <IconButton onClick={() => handleEdit(purchasedIngredient.id)} size="small">
+                  <EditIcon fontSize="small" />
+                </IconButton>
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>

@@ -7,12 +7,15 @@ import {
   Box
 } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import EditIcon from '@mui/icons-material/Edit';
 import { ingredients as purchasedIngredients } from '../api/purchasedIngredients';
 import PurchasedIngredientsList from './PurchasedIngredientsList';
 import styles from './IngredientList.module.css';
+import useIngredientNavigation from '../model/useIngredientNavigation';
 
 function IngredientRow({ ingredient, index, filterFields }) {
   const [expanded, setExpanded] = useState(false);
+  const { navigateToIngredientEdit } = useIngredientNavigation();
 
   const hasPurchasedIngredients = purchasedIngredients.some(
     item => item.inciName === ingredient.inciName
@@ -22,6 +25,11 @@ function IngredientRow({ ingredient, index, filterFields }) {
     if (hasPurchasedIngredients) {
       setExpanded(!expanded);
     }
+  };
+
+  const handleEdit = (e) => {
+    e.stopPropagation();
+    navigateToIngredientEdit(ingredient.inciName);
   };
 
   return (
@@ -37,20 +45,22 @@ function IngredientRow({ ingredient, index, filterFields }) {
             {ingredient[key]}
           </TableCell>
         ))}
-        <TableCell className={styles.tableCell}>
-          {hasPurchasedIngredients && (
-            <IconButton size="small" onClick={(e) => {
-              e.stopPropagation();
-              toggleExpand();
-            }}>
-              <ExpandMoreIcon
-                style={{
-                  transform: expanded ? 'rotate(180deg)' : 'rotate(0deg)',
-                  transition: 'transform 0.3s'
-                }}
-              />
+        <TableCell className={styles.tableCell} style={{ width: '80px' }}>
+          <Box display="flex" alignItems="center" justifyContent="flex-end">
+            <IconButton onClick={handleEdit} size="small">
+              <EditIcon />
             </IconButton>
-          )}
+            {hasPurchasedIngredients && (
+              <IconButton size="small" onClick={(e) => {
+                e.stopPropagation();
+                toggleExpand();
+              }}>
+                <ExpandMoreIcon
+                  className={`${styles.expandIcon} ${expanded ? styles.expanded : ''}`}
+                />
+              </IconButton>
+            )}
+          </Box>
         </TableCell>
       </TableRow>
       {hasPurchasedIngredients && (

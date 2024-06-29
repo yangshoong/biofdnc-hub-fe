@@ -1,8 +1,8 @@
 const navItems = [
   { label: '성분관리', subItems: [
     { label: '성분조회', link: '/ingredients' },
-    { label: '성분등록', link: '/ingredient-registration' },
-    { label: '구매성분등록', link: '/purchase-ingredient-registration' }
+    { label: '성분입력', link: '/ingredient-input' },
+    { label: '구매성분입력', link: '/purchased-ingredient-input' }
   ] },
   { label: '제품관리', subItems: [
     { label: '제품조회', link: '/products' },

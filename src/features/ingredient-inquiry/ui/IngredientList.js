@@ -1,37 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import IngredientRow from './IngredientRow';
 import { 
   Box, Typography, Table, TableBody, TableCell, TableContainer, 
   TableHead, TableRow, Paper, Tabs, Tab, TextField, Pagination
 } from '@mui/material';
-import { ingredients } from '../api/ingredients';
 import useIngredientStore from '../model/useIngredientStore';
 import styles from './IngredientList.module.css';
-import IngredientRow from './IngredientRow';
 
 function IngredientList() {
-  const { filters, setFilter } = useIngredientStore();
-  const [filteredIngredients, setFilteredIngredients] = useState(ingredients);
-  const [page, setPage] = useState(1);
-  const itemsPerPage = 7;
-
-  const paginatedIngredients = filteredIngredients.slice(
-    (page - 1) * itemsPerPage,
-    page * itemsPerPage
-  );
+  const { filters, setFilter, filteredIngredients, page, setPage, itemsPerPage } = useIngredientStore();
 
   const handlePageChange = (event, value) => {
     setPage(value);
   };
-
-  useEffect(() => {
-    const filtered = ingredients.filter((ingredient) =>
-      Object.entries(filters).every(([key, value]) => 
-        !value || (ingredient[key] && ingredient[key].toLowerCase().includes(value.toLowerCase()))
-      )
-    );
-    setFilteredIngredients(filtered);
-    setPage(1);
-  }, [filters]);
 
   const handleKeyDown = (event, key) => {
     if (event.key === 'Escape') {
@@ -45,6 +26,11 @@ function IngredientList() {
     { key: 'casNo', label: 'CAS No.' },
     { key: 'efficacy', label: '효능' },
   ];
+
+  const paginatedIngredients = filteredIngredients.slice(
+    (page - 1) * itemsPerPage,
+    page * itemsPerPage
+  );
 
   return (
     <Box className={styles.container}>
@@ -85,12 +71,12 @@ function IngredientList() {
                   {filterFields.map(({ label }) => (
                     <TableCell key={label} className={styles.tableCell}>{label}</TableCell>
                   ))}
-                  <TableCell className={styles.tableCell}></TableCell>
+                  <TableCell className={styles.tableCell}>수정</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
                 {paginatedIngredients.map((ingredient, index) => (
-                  <IngredientRow 
+                  <IngredientRow
                     key={ingredient.inciName}
                     ingredient={ingredient}
                     index={(page - 1) * itemsPerPage + index + 1}
