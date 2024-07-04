@@ -2,7 +2,6 @@ import React from 'react';
 import { Typography, Table, TableHead, TableBody, TableRow, TableCell, IconButton } from '@mui/material';
 import EditIcon from '@mui/icons-material/Edit';
 import { ingredients as purchasedIngredients } from '../api/purchasedIngredients';
-import useIngredientNavigation from '../model/useIngredientNavigation';
 
 function PurchasedIngredientsList({ inciName }) {
   const filteredIngredients = purchasedIngredients.filter(item => item.inciName === inciName);
