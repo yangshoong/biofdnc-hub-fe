@@ -12,8 +12,13 @@ const navItems = [
     { label: '자료조회', link: '/data-search' },
     { label: '자료등록', link: '/data-registration' }
   ] },
-  { label: '내부감사', subItems: [
-    { label: '아모레퍼시픽', link: '/amore' },
+  {
+    label: '품질경영', subItems: [
+      { label: 'ISO9001', link: '/ISO9001' },
+    ]
+  }
+  { label: 'Audit', subItems: [
+    { label: '아모레퍼시픽', link: '/amorepacific' },
     { label: 'GIVAUDAN', link: '/givaudan' }
   ] }
 ];
