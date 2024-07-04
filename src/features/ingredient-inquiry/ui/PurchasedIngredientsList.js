@@ -6,7 +6,6 @@ import useIngredientNavigation from '../model/useIngredientNavigation';
 
 function PurchasedIngredientsList({ inciName }) {
   const filteredIngredients = purchasedIngredients.filter(item => item.inciName === inciName);
-  const { navigateToIngredientEdit } = useIngredientNavigation();
 
   const handleEdit = (id) => {
     console.log(`Edit purchased ingredient with id: ${id}`);
