@@ -17,9 +17,6 @@ function LoginPage({ onLogin }) {
           <Typography component="h1" variant="h5" align="center" gutterBottom>
             BIO-FD&C
           </Typography>
-          <Typography variant="subtitle1" align="center" gutterBottom>
-            식물세포의 꿈에 당신을 초대합니다
-          </Typography>
           <LoginForm onLogin={onLogin} />
         </Paper>
       </Box>
