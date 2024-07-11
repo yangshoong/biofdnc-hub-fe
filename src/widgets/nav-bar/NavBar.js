@@ -43,7 +43,7 @@ function NavBar() {
                 key={index}
                 color="inherit"
                 component={Link}
-                to="#"
+                to={item.link || "#"}
                 className="nav-bar-item"
                 sx={{ margin: '0 20px' }}
                 onMouseOver={(event) => handleMouseOver(event, item.subItems)}

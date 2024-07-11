@@ -13,10 +13,10 @@ const navItems = [
     { label: '자료등록', link: '/data-registration' }
   ] },
   {
-    label: '품질경영', subItems: [
-      { label: 'ISO9001', link: '/ISO9001' },
+    label: '품질경영관리', subItems: [
+      { label: 'ISO9001 관리', link: '/iso9001' },
     ]
-  }, // 여기에 쉼표를 추가했습니다
+  },
   { label: 'Audit', subItems: [
     { label: '아모레퍼시픽', link: '/amorepacific' },
     { label: 'GIVAUDAN', link: '/givaudan' }

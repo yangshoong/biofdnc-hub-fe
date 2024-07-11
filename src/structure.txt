@@ -1,0 +1,141 @@
+.
+|____app
+| |____App.css
+| |____App.js
+| |____AppProviders.js
+| |____AppRoutes.js
+|____App.test.js
+|____entities
+| |____ingredient
+| | |____model
+| | | |____createIngredient.js
+|____features
+| |____auth
+| | |____model
+| | | |____authStore.js
+| | |____ui
+| | | |____LoginForm.js
+| |____ingredient-edit
+| | |____model
+| | | |____useIngredientEditStore.js
+| | |____ui
+| | | |____IngredientEditForm.js
+| | | |____IngredientEditPage.js
+| |____ingredient-inquiry
+| | |____api
+| | | |____ingredients.js
+| | | |____purchasedIngredients.js
+| | |____model
+| | | |____useIngredientNavigation.js
+| | | |____useIngredientStore.js
+| | |____ui
+| | | |____IngredientList.js
+| | | |____IngredientList.module.css
+| | | |____IngredientRow.js
+| | | |____PurchasedIngredientsList.js
+| |____iso9001
+| | |____api
+| | |____data
+| | |____documents
+| | | |____0. 규정리스트.md
+| | | |____0. 규정모음집.md
+| | | |____0. 작성기준.md
+| | | |____0. 준비사항.md
+| | | |____1. 일반관리기준서_1. 업무매뉴얼(완료).md
+| | | |____1. 일반관리기준서_10. 폐기물 처리 및 관리 규정 (완료).md
+| | | |____1. 일반관리기준서_11. 회수반품처리규정 (완료).md
+| | | |____1. 일반관리기준서_12. 시설도면규정 (완료).md
+| | | |____1. 일반관리기준서_2. 업무분장 규정(완료).md
+| | | |____1. 일반관리기준서_3. 기록 관리 규정(완료).md
+| | | |____1. 일반관리기준서_4. 교육훈련 규정(완료).md
+| | | |____1. 일반관리기준서_5. 제품 식별 및 추적성 관리 규정(완료).md
+| | | |____1. 일반관리기준서_6. 내부감사 규정_개정(완료).md
+| | | |____1. 일반관리기준서_7. 문서 및 자료관리 규정(완료).md
+| | | |____1. 일반관리기준서_8. 불만 처리 규정(완료).md
+| | | |____1. 일반관리기준서_9. 위수탁생산 및 서비스관리 규정(완료).md
+| | | |____2. 제조위생관리기준서_1.방충 및 방서 관리 규정(완료).md
+| | | |____2. 제조위생관리기준서_2. 위생복 착용 규정 (완료).md
+| | | |____2. 제조위생관리기준서_3. 작업원 수세 및 소독관리 규정 (완료).md
+| | | |____2. 제조위생관리기준서_4. 작업원 건강관리 규정 (완료).md
+| | | |____2. 제조위생관리기준서_5. 폐기물 관리 규정 (중복).md
+| | | |____2. 제조위생관리기준서_6. 작업원 위생관리 규정 (완료).md
+| | | |____2. 제조위생관리기준서_7. 작업장 위생관리 규정 (완료).md
+| | | |____2. 제조위생관리기준서_8. 작업장 청소 및 소독관리 규정(완료).md
+| | | |____2. 제조위생관리기준서_9.설비 기구 세척 및 소독관리 규정 (완료).md
+| | | |____3. 품질관리기준서_1. 검체의 채취 및 보관 규정 (완료).md
+| | | |____3. 품질관리기준서_10. 안정성시험규정 (완료).md
+| | | |____3. 품질관리기준서_2. 일탈관리규정 (완료).md
+| | | |____3. 품질관리기준서_3. 계측기 검교정 관리 규정 (보완필요).md
+| | | |____3. 품질관리기준서_4. 제조용수 시험관리 규정 (완료).md
+| | | |____3. 품질관리기준서_5. 부자재 입고검사 규정 (완료).md
+| | | |____3. 품질관리기준서_6. 미생물시험 규정 (보완필요).md
+| | | |____3. 품질관리기준서_7. 환경모니터링 관리 규정 (수행불가).md
+| | | |____3. 품질관리기준서_8. 시약 관리 규정 (완료).md
+| | | |____3. 품질관리기준서_9. 표준품관리규정 (완료).md
+| | | |____4. 제조관리기준서_1. 제조번호 부여 규정 (완료).md
+| | | |____4. 제조관리기준서_10. 변경관리규정 (완료).md
+| | | |____4. 제조관리기준서_11. 부적합품관리규정 (완료).md
+| | | |____4. 제조관리기준서_2. 건물,시설 및 설비관리규정 (완료).md
+| | | |____4. 제조관리기준서_3. 공급업체 관리 규정 (완료).md
+| | | |____4. 제조관리기준서_4. 원료 관리 규정 (완료).md
+| | | |____4. 제조관리기준서_5. 부자재 관리 규정 (완료).md
+| | | |____4. 제조관리기준서_6. 제조관리규정 (완료).md
+| | | |____4. 제조관리기준서_7. 포장공정관리규정 (미사용).md
+| | | |____4. 제조관리기준서_8. 반제품 관리 규정 (완료).md
+| | | |____4. 제조관리기준서_9. 제품 관리 규정 (완료).md
+| | |____lib
+| | |____model
+| | |____ui
+| |____product-management
+| | |____api
+| | | |____products.js
+| | |____model
+| | | |____useProductStore.js
+| | |____ui
+| | | |____ProductList.js
+|____index.css
+|____index.js
+|____logo.svg
+|____pages
+| |____dashboard
+| | |____DashboardLayout.js
+| | |____index.js
+| |____ingredient-detail
+| | |____IngredientDetailPage.js
+| |____ingredient-inquiry
+| | |____IngredientInquiryPage.js
+| |____iso9001
+| | |____ISO9001Page.js
+| |____login
+| | |____index.js
+| | |____LoginLayout.js
+|____reportWebVitals.js
+|____setupTests.js
+|____shared
+| |____api
+| | |____ingredientApi.js
+| |____assets
+| | |____csv
+| | | |____ingredients.csv
+| | |____images
+| | | |____biofdnc_logo.png
+| |____ui
+| | |____theme.js
+| | |____ThemeProvider.js
+|____structure.txt
+|____widgets
+| |____announcements
+| | |____Announcements.js
+| |____contact-us
+| | |____ContactUs.js
+| |____help-desk
+| | |____HelpDesk.js
+| |____nav-bar
+| | |____NavBar.css
+| | |____NavBar.js
+| | |____navItems.js
+| | |____useNavStore.js
+| |____performance-chart
+| | |____PerformanceChart.js
+| |____to-do-list
+| | |____ToDoList.js

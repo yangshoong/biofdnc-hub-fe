@@ -7,6 +7,7 @@ import ProductList from '../features/product-management/ui/ProductList';
 import IngredientList from '../features/ingredient-inquiry/ui/IngredientList';
 import IngredientDetailPage from '../pages/ingredient-detail/IngredientDetailPage';
 import IngredientEditPage from '../features/ingredient-edit/ui/IngredientEditPage';
+import ISO9001Page from '../pages/iso9001/ISO9001Page';
 
 function AppRoutes() {
   const { isLoggedIn, login } = useAuthStore();
@@ -27,6 +28,8 @@ function AppRoutes() {
       <Route path="/ingredient-edit/:id" element={
         isLoggedIn ? <IngredientEditPage /> : <Navigate to="/login" />
       } />
+      <Route path="/iso9001" element={<ISO9001Page />} />
+      <Route path="/iso9001/:section" element={<ISO9001Page />} />
       <Route path="/" element={<Navigate to="/login" />} />
     </Routes>
   );

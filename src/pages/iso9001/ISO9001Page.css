@@ -1,0 +1,27 @@
+.iso9001-container {
+  display: flex;
+  height: 92vh;
+}
+
+.side-menu {
+  width: 250px;
+  height: 100%;
+  background-color: #f0f0f0;
+  overflow-y: auto;
+}
+
+.content-area {
+  flex-grow: 1;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  overflow-y: auto;
+}
+
+.document-content {
+  width: 60%;
+  max-width: 800px;
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
