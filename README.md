@@ -1,72 +1,31 @@
-# Getting Started with Create React App
+# 프로그램 기본 구조
+  - 폴더와 파일 구조는 Feature-Structured Design (FSD)를 따른다.
+  - 프로그램은 Javascript의 React를 기본으로 한다.
+  - 클라이언트의 상태 관리는 Justand를 사용한다.
+  - 서버상태관리와 데이터 페칭은 TanStack을 사용한다.
+  - 코드 작성 시, 해당 코드가 저장되는 폴더와 파일명을 항상 함께 알려준다.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# 프로그램의 목적
+- 이 프로그램의 첫번째 목적은 제품의 RMI를 관리하고 그 정보를 기반으로 다양한 서류를 자동 작성하도록 하는 것 이다.
+- 이 프로그램의 두번째 목적은 ISO9001을 관리하고 개정하는 것 이다.
+- 이 프로그램의 세번째 목적은 협력사 Audit에 필요한 기록서들을 관리하고 기록하는 것 이다.
 
-## Available Scripts
+# 프로그램 구성
+- 성분관리
+- 제품관리
+  - RMI관리
+  - 서류관리
+- 품질경영관리
+  - ISO9001관리
+    - 좌측에 목차 표시
+    - 우측에 선택된 목차의 내용 표시
+    - 좌우 너비 조절 가능한 분할 화면
 
-In the project directory, you can run:
+<!-- 1. 리드미의 작성기준을 확인하고, 이미지와 같이 ISO9001 버튼을 눌렀을 때 나오는 페이지를 디자인해줘. 
+2. 좌측의 슬라이드는 목차를, 우측슬라이드는 내용을 보여주며, 슬라이드는 좌우 너비를 조절할 수 있도록 해줘. 
+3. 해당 내용은 아직 백엔드가 연결 되지 않아서, 나중에는 백엔드에서 불러오는 자료가 사용될 것이라는 것을 감안하고, 일단은 더미자료로 프론트엔드에 넣을꺼야. 간단한 더미자료도 만들어줘.
+4. 목차와 내용에는 ISO9001 매뉴얼의 목차와 내용이 들어갈꺼야.  -->
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# product-hub-fe
-# biofdnc-hub-fe
+- Audit관리
+  - 아모레퍼시픽
+  - GIVAUDAN# biofdnc-hub-fe
