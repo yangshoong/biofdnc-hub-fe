@@ -4,7 +4,7 @@ import { styled } from '@mui/material/styles';
 import ISO9001TableOfContents from '../../features/iso9001/ui/ISO9001TableOfContents';
 import ISO9001ContentDisplay from '../../features/iso9001/ui/ISO9001ContentDisplay';
 
-const drawerWidth = 255;
+const drawerWidth = 382; // 255 * 1.5
 const navbarHeight = 70;
 
 const Root = styled('div')(({ theme }) => ({
@@ -23,7 +23,14 @@ const StyledDrawer = styled(Drawer)(({ theme }) => ({
     top: `${navbarHeight}px`,
     height: `calc(100% - ${navbarHeight}px)`,
     backgroundColor: theme.palette.background.default,
-    borderRight: `1px solid ${theme.palette.divider}`,
+    borderRight: 'none',
+    paddingLeft: theme.spacing(8), // Add left padding
+  },
+  '& .MuiListItemText-primary': {
+    fontSize: '0.9rem',
+  },
+  '& .MuiListItemText-secondary': {
+    fontSize: '0.8rem',
   },
 }));
 
@@ -55,8 +62,8 @@ const ISO9001Page = () => {
         <List>
           <ListItem>
             <ListItemText 
-              primary={<Typography variant="h6" sx={{ fontWeight: 'bold' }}>ISO 9001</Typography>}
-              secondary={<Typography variant="body2">Table of Contents</Typography>}
+              primary={<Typography variant="h6" sx={{ fontWeight: 'bold', fontSize: '1.1rem' }}>ISO 9001</Typography>}
+              secondary={<Typography variant="body2" sx={{ fontSize: '0.9rem' }}>Table of Contents</Typography>}
             />
           </ListItem>
         </List>

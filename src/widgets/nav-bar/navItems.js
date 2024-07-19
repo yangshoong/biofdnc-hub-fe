@@ -14,13 +14,10 @@ const navItems = [
   ] },
   {
     label: '품질경영관리', subItems: [
-      { label: 'ISO9001 관리', link: '/iso9001' },
+      { label: 'ISO9001', link: '/iso9001' },
     ]
-  },
-  { label: 'Audit', subItems: [
-    { label: '아모레퍼시픽', link: '/amorepacific' },
-    { label: 'GIVAUDAN', link: '/givaudan' }
-  ] }
+  }
+  
 ];
 
 export default navItems;
