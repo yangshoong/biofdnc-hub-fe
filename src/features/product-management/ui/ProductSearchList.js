@@ -1,32 +1,28 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Tabs, Tab, TextField } from '@mui/material';
-import { products } from '../api/products';
-import useProductStore from '../model/useProductStore';
+import { Box, TextField, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
+// import { products } from '../api/products';
+// import useProductStore from '../model/useProductStore';
 
-function ProductList() {
-  const { filters, setFilter } = useProductStore();
-  const [filteredProducts, setFilteredProducts] = useState(products);
+function ProductSearchList() {
+  const [searchResults, setSearchResults] = useState([]);
+  const [filters, setFilters] = useState({
+    number: '',
+    name: '',
+    shortName: '',
+    structure: '',
+    purchaseGroup: ''
+  });
+
+  const setFilter = (key, value) => {
+    setFilters(prevFilters => ({ ...prevFilters, [key]: value }));
+  };
 
   useEffect(() => {
-    setFilteredProducts(
-      products.filter((product) =>
-        (product.number || '').toLowerCase().includes(filters.number.toLowerCase()) &&
-        (product.name || '').toLowerCase().includes(filters.name.toLowerCase()) &&
-        (product.shortName || '').toLowerCase().includes(filters.shortName.toLowerCase()) &&
-        (product.structure || '').toLowerCase().includes(filters.structure.toLowerCase()) &&
-        (product.purchaseGroup || '').toLowerCase().includes(filters.purchaseGroup.toLowerCase())
-      )
-    );
-  }, [filters]);
+    // fetchProducts();
+  }, []);
 
   return (
-    <Box sx={{ padding: '0 100px' }}>
-      <Tabs value={0} indicatorColor="primary" textColor="primary">
-        <Tab label="제품관리" />
-      </Tabs>
-      <Typography variant="h6" component="div" sx={{ flexGrow: 1, marginTop: 2 }}>
-        제품조회
-      </Typography>
+    <>
       <Box sx={{ display: 'flex', gap: 2, marginTop: 2 }}>
         <TextField
           label="품번"
@@ -77,7 +73,7 @@ function ProductList() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {filteredProducts.map((product, index) => (
+            {searchResults.map((product, index) => (
               <TableRow key={product.id}>
                 <TableCell>{index + 1}</TableCell>
                 <TableCell>{product.number}</TableCell>
@@ -95,8 +91,8 @@ function ProductList() {
           </TableBody>
         </Table>
       </TableContainer>
-    </Box>
+    </>
   );
 }
 
-export default ProductList;
+export default ProductSearchList;
