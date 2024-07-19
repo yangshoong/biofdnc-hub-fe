@@ -4,9 +4,14 @@
   background-color: white;
 }
 
+body {
+  padding-top: 64px; /* AppBar의 기본 높이 */
+}
+
 .nav-bar {
   background-color: #0a2240;
   border-bottom: 2px solid white;
+  z-index: 1100; /* 다른 요소들 위에 표시되도록 z-index 설정 */
 }
 
 .nav-bar-toolbar {

@@ -5,12 +5,12 @@ import ISO9001TableOfContents from '../../features/iso9001/ui/ISO9001TableOfCont
 import ISO9001ContentDisplay from '../../features/iso9001/ui/ISO9001ContentDisplay';
 
 const drawerWidth = 255;
-const navbarHeight = 70; // 네비게이션 바의 높이, 실제 값에 맞게 조정하세요
+const navbarHeight = 70;
 
 const Root = styled('div')(({ theme }) => ({
-  display: 'flex', // 자식 요소들을 가로로 배치
-  height: `calc(100vh - ${navbarHeight + 80}px)`, // 전체 높이에서 네비게이션 바 높이와 추가 20px를 뺀 값
-  marginTop: `${navbarHeight}px`, // 네비게이션 바 높이만큼 상단 여백 추가
+  display: 'flex',
+  height: `calc(100vh - ${navbarHeight}px)`,
+  marginTop: `${navbarHeight}px`,
 }));
 
 const StyledDrawer = styled(Drawer)(({ theme }) => ({
@@ -19,28 +19,27 @@ const StyledDrawer = styled(Drawer)(({ theme }) => ({
   '& .MuiDrawer-paper': {
     width: drawerWidth,
     boxSizing: 'border-box',
+    position: 'fixed',
     top: `${navbarHeight}px`,
-    height: `calc(100% - ${navbarHeight + 20}px)`, // 20px 더 줄임
+    height: `calc(100% - ${navbarHeight}px)`,
     backgroundColor: theme.palette.background.default,
+    borderRight: `1px solid ${theme.palette.divider}`,
   },
 }));
 
 const Content = styled('main')(({ theme }) => ({
   flexGrow: 1,
-  padding: theme.spacing(1, 2), // 상하, 좌우 패딩을 더 줄임
-  display: 'flex',
-  justifyContent: 'center',
+  padding: theme.spacing(3),
   backgroundColor: theme.palette.background.default,
   overflowY: 'auto',
   height: '100%',
 }));
 
-const DocumentContent = styled(Paper)(({ theme }) => ({
-  width: '90%', // 80%에서 90%로 변경하여 좌우 여백을 줄임
-  maxWidth: 'none',
-  padding: theme.spacing(2), // 패딩을 줄임
-  backgroundColor: theme.palette.background.paper,
-  marginBottom: theme.spacing(2), // 하단 마진을 줄임
+const StyledPaper = styled(Paper)(({ theme }) => ({
+  padding: theme.spacing(3),
+  maxWidth: '800px',
+  margin: '0 auto',
+  boxShadow: '0 3px 5px 2px rgba(0, 0, 0, .1)',
 }));
 
 const ISO9001Page = () => {
@@ -56,7 +55,7 @@ const ISO9001Page = () => {
         <List>
           <ListItem>
             <ListItemText 
-              primary={<Typography variant="h6">ISO 9001</Typography>}
+              primary={<Typography variant="h6" sx={{ fontWeight: 'bold' }}>ISO 9001</Typography>}
               secondary={<Typography variant="body2">Table of Contents</Typography>}
             />
           </ListItem>
@@ -66,9 +65,9 @@ const ISO9001Page = () => {
         </Box>
       </StyledDrawer>
       <Content>
-        <DocumentContent elevation={3}>
+        <StyledPaper>
           <ISO9001ContentDisplay selectedItem={selectedItem} />
-        </DocumentContent>
+        </StyledPaper>
       </Content>
     </Root>
   );

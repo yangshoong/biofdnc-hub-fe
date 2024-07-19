@@ -30,7 +30,7 @@ function NavBar() {
   return (
     <>
       <Box className="nav-bar-top-line" />
-      <AppBar position="static" className="nav-bar">
+      <AppBar position="fixed" className="nav-bar">
         <Toolbar className="nav-bar-toolbar">
           <Box className="nav-bar-logo-container">
             <Link to="/">
